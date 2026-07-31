@@ -14,14 +14,14 @@ spec:
             - us-east-1a
             - us-east-1d
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
+      - weight: 10
         preference:
           matchExpressions:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
             - us-east-1a
-      - weight: 10
+      - weight: 20
         preference:
           matchExpressions:
           - key: topology.kubernetes.io/zone
