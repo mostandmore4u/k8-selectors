@@ -20,14 +20,14 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - us-east-1a
+            - us-east-1a # we have 3 nodes one is in 1a other 2 in 1d
       - weight: 20
         preference:
           matchExpressions:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - us-east-1d
+            - us-east-1d # now first preference to create is from 1d region 
   containers:
   - name: nginx
     image: nginx

@@ -20,14 +20,14 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: NotIn #NotIn is anti affinity
             values:
-            - us-east-1b
+            - us-east-1d # we have 2 nodes in 1d , we dont want the pod created in that nodes
       - weight: 10
         preference:
           matchExpressions:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - us-east-1c
-  containers:
+            - us-east-1a # we only have 1 node in 1a, we want to created the pod here
+  containers: 
   - name: nginx
     image: nginx
